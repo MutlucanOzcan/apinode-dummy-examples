@@ -1,19 +1,24 @@
 const yargs = require("yargs");
 const countryCapitalWeather = require("./api-yargs-example");
 
-yargs.command({
-  command: "country",
-  describe: "ulkeye karar verir",
-  builder: {
-    country: {
-      describe: "ulke adi",
-      demandOption: true,
-      type: "string",
-    },
-  },
-  handler(argv) {
-    countryCapitalWeather(argv.country);
-  },
-});
 
-yargs.parse();
+function run() {
+  yargs.command({
+    command: "country",
+    describe: "decides which country",
+    builder: {
+      country: {
+        describe: "country name",
+        demandOption: true,
+        type: "string",
+      },
+    },
+    handler(argv) {
+      countryCapitalWeather(argv.country);
+    },
+  });
+
+  yargs.parse();
+}
+
+module.exports = run;
