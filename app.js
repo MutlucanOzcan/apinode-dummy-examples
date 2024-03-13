@@ -1,7 +1,7 @@
 const yargs = require("yargs");
 const countryCapitalWeather = require("./api-yargs-example");
 
-
+run();
 function run() {
   yargs.command({
     command: "country",
